@@ -20,48 +20,48 @@ namespace RestaurantAPI.Controllers
             _dbContex = dbContext;
             _mapper = mapper;
         }
-        [HttpGet]
-        public ActionResult<IEnumerable<Restaurant>> GetAll()
-        {
-            var restaurants = _dbContex
-                .Restaurants
-                
-                .ToList();
-            
-
-            return Ok(restaurants);
-        }
         //[HttpGet]
-        //public ActionResult<IEnumerable<RestaurantDto>> GetAll()
+        //public ActionResult<IEnumerable<Restaurant>> GetAll()
         //{
         //    var restaurants = _dbContex
         //        .Restaurants
-        //        .Include(restaurants => restaurants.Address)
-        //        .Include(restaurants => restaurants.Dishes)
+
         //        .ToList();
 
-        //    var restaurantsDtos = _mapper.Map<List<RestaurantDto>>(restaurants);
 
-        //    return Ok(restaurantsDtos);
+        //    return Ok(restaurants);
         //}
+        [HttpGet]
+        public ActionResult<IEnumerable<RestaurantDto>> GetAll()
+        {
+            var restaurants = _dbContex
+                .Restaurants
+                .Include(restaurants => restaurants.Address)
+                .Include(restaurants => restaurants.Dishes)
+                .ToList();
 
-        //[HttpGet("{id}")]
-        //public ActionResult<IEnumerable<RestaurantDto>> Get([FromRoute] int id)
-        //{
-        //    Restaurant restaurant = _dbContex
-        //        .Restaurants
-        //        .Include(restaurants => restaurants.Address)
-        //        .Include(restaurants => restaurants.Dishes)
-        //        .FirstOrDefault(r => r.Id == id);
+            var restaurantsDtos = _mapper.Map<List<RestaurantDto>>(restaurants);
 
-        //    if (restaurant is null)
-        //    {
-        //        return NotFound();
-        //    }
+            return Ok(restaurantsDtos);
+        }
 
-        //    var restaurantsDtos = _mapper.Map<RestaurantDto>(restaurant);
-        //    return Ok(restaurant);
+        [HttpGet("{id}")]
+        public ActionResult<IEnumerable<RestaurantDto>> Get([FromRoute] int id)
+        {
+            Restaurant restaurant = _dbContex
+                .Restaurants
+                .Include(restaurants => restaurants.Address)
+                .Include(restaurants => restaurants.Dishes)
+                .FirstOrDefault(r => r.Id == id);
 
-        //}
+            if (restaurant is null)
+            {
+                return NotFound();
+            }
+
+            var restaurantsDtos = _mapper.Map<RestaurantDto>(restaurant);
+            return Ok(restaurant);
+
+        }
     }
 }
