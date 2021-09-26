@@ -55,7 +55,10 @@ namespace RestaurantAPI
                     {
                         City = "Kraków",
                         Street = "Długa 6",
-                        PostalCode = "00-950"
+                        PostalCode = "00-950",
+                        Region = "Poland",
+                        Country="Poland"
+
                     }
                 },
                 new Restaurant()
@@ -65,6 +68,7 @@ namespace RestaurantAPI
                     Description = "McDonalds is an American fast food restaurant.",
                     ContactEmail = "contact@mcdonalds.com",
                     HasDelivery = true,
+                    Opinion = "positive",
                     Dishes = new List<Dish>()
                     {
                         new Dish()
@@ -82,7 +86,9 @@ namespace RestaurantAPI
                     {
                         City = "Warszawa",
                         Street = "Krzywa 1",
-                        PostalCode = "00-950"
+                        PostalCode = "00-950",
+                        Region = "Poland",
+                        Country="Poland"
                     }
                 },
                 new Restaurant()
@@ -92,6 +98,7 @@ namespace RestaurantAPI
                     Description = "Pizza Hut is an American pizza restaurant.",
                     ContactEmail = "contact@pizzahut.com",
                     HasDelivery = true,
+                    Opinion = "negative",
                     Dishes = new List<Dish>()
                     {
                         new Dish()
@@ -109,7 +116,39 @@ namespace RestaurantAPI
                     {
                         City = "Gdańsk",
                         Street = "Targ drzewny 1",
-                        PostalCode = "00-950"
+                        PostalCode = "00-950",
+                        Region = "Poland",
+                        Country="Poland"
+                    }
+                },
+                new Restaurant()
+                {
+                    Name = "Burger KIng",
+                    Category = "Fast Food",
+                    Description = "Pizza Hut is an American pizza restaurant.",
+                    ContactEmail = "contact@pizzahut.com",
+                    HasDelivery = true,
+                    Opinion = "negative",
+                    Dishes = new List<Dish>()
+                    {
+                        new Dish()
+                        {
+                            Name = "BigBurger",
+                            Price = 12.30M,
+                        },
+                        new Dish()
+                        {
+                            Name = "MacBUrger",
+                            Price = 5.30M,
+                        }
+                    },
+                    Address = new Address()
+                    {
+                        City = "Opole",
+                        Street = "Sadowa 5",
+                        PostalCode = "00-950",
+                        Region = "Poland",
+                        Country="Poland"
                     }
                 }
             };

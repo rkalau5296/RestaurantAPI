@@ -9,8 +9,8 @@ using RestaurantAPI.Entities;
 namespace RestaurantAPI.Migrations
 {
     [DbContext(typeof(RestaurantDbContext))]
-    [Migration("20210924105045_newInit1")]
-    partial class newInit1
+    [Migration("20210925225820_nova2")]
+    partial class nova2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,6 +33,9 @@ namespace RestaurantAPI.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("PostalCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Region")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Street")
@@ -101,6 +104,9 @@ namespace RestaurantAPI.Migrations
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
+
+                    b.Property<string>("Opinion")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

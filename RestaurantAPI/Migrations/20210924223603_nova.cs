@@ -2,7 +2,7 @@
 
 namespace RestaurantAPI.Migrations
 {
-    public partial class newInit1 : Migration
+    public partial class nova : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
